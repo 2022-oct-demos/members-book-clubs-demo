@@ -48,5 +48,5 @@ export async function deleteMember(memberId) {
 }
 
 function checkError(response) {
-    return response.error ? console.error(error) : response.data;
+    return response.error ? console.error(response.error) : response.data;
 }
