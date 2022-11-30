@@ -27,3 +27,10 @@ export async function signOutUser() {
 }
 
 /* Data functions */
+
+// export async function getBookClubs() {
+//     // give me every property for workshops.
+//     const response = await client.from('book_clubs').select('*, members (*)');
+
+//     return response.data;
+// }

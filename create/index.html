@@ -15,7 +15,7 @@
             defer
             src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@1.35.7/dist/umd/supabase.min.js"
         ></script>
-        <script type="module" src="app.js"></script>
+        <script type="module" src="create.js"></script>
 
         <!-- fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -26,15 +26,15 @@
         />
 
         <!-- css -->
-        <link rel="stylesheet" href="/styles/reset.css" />
-        <link rel="stylesheet" href="/styles/global.css" />
+        <link rel="stylesheet" href="../styles/reset.css" />
+        <link rel="stylesheet" href="../styles/global.css" />
         <!-- add link for page specific css -->
     </head>
 
     <body>
         <header class="page-header">
             <img class="logo" src="/assets/html_css_js.png" alt="logo" />
-            <p class="title">Book Club Membership Tracker</p>
+            <h1 class="title">Add a Member</h1>
             <nav>
                 <a href="/">Home</a>
                 <a id="sign-out-link" href="auth">Sign Out</a>
@@ -42,8 +42,21 @@
         </header>
 
         <main>
-            <h2>All Book Clubs:</h2>
-            <section class="book-clubs-list"></section>
+            <!-- <form>
+                <label>
+                    Name
+                    <input name="name" />
+                </label>
+                <label>
+                    Contact Info
+                    <input name="contact" />
+                </label>
+                <label>
+                    Select a Book Club
+                    <select name="club-id"></select>
+                </label>
+                <button type="submit">Add member</button>
+            </form> -->
         </main>
     </body>
 </html>
