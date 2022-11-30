@@ -2,6 +2,26 @@
 
 1. Database Setup
 
+Add two tables
+
+| book_clubs |         |
+| ---------- | ------- |
+| name       | varchar |
+
+| members      |                          |
+| ------------ | ------------------------ |
+| name         | varchar                  |
+| contact_info | varchar                  |
+| club_id      | foreign key (book_clubs) |
+
+-   Add test data to workshops / participants
+-   Add RLS so that only authenticated users can do anything with the data (select, update, delete, create)
+    -   CLUBS => enable read for all users
+    -   MEMBERS =>
+        -   enable read for all users
+        -   insert authenticated only
+        -   delete authenticated only
+
 2. (landing page) Book Clubs page
 
     - getBookClubs function (fetch all of the book clubs AND their members)
