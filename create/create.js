@@ -1,33 +1,46 @@
-// import { createMember, getBookClubs } from '../fetch-utils.js';
+import { createMember, getBookClubs } from '../fetch-utils.js';
 
-// const selectEl = document.querySelector('select');
-// const form = document.querySelector('form');
+const selectEl = document.querySelector('select');
+const form = document.querySelector('form');
 
-// form.addEventListener('submit', async (e) => {
-//     e.preventDefault();
+window.addEventListener('load', async () => {
+    const clubs = await getBookClubs();
 
-//     const data = new FormData(form);
-//     // match grabbed data with associated name attr
-//     const name = data.get('name');
-//     const contact = data.get('contact');
-//     const clubId = data.get('club-id');
+    for (let club of clubs) {
+        const clubOption = document.createElement('option');
 
-//     await createMember({
-//         name: name,
-//         contact_info: contact,
-//         club_id: clubId,
-//     });
-// });
+        clubOption.textContent = club.name;
+        clubOption.value = club.id;
 
-// window.addEventListener('load', async () => {
-//     const clubs = await getBookClubs();
+        selectEl.append(clubOption);
+    }
+    // await createMember(riisMember);
+    // await createMember(pinkertonMember);
+});
 
-//     for (let club of clubs) {
-//         const clubOption = document.createElement('option');
+// const riisMember = {
+//     name: 'Riis',
+//     contact_info: 'affectionatesolitude@email.com',
+//     club_id: 5,
+// };
+// const pinkertonMember = {
+//     name: 'Pinkerton',
+//     contact_info: 'treatsandpets@email.com',
+//     club_id: 1,
+// };
 
-//         clubOption.textContent = club.name;
-//         clubOption.value = club.id;
+form.addEventListener('submit', async (e) => {
+    e.preventDefault();
 
-//         selectEl.append(clubOption);
-//     }
-// });
+    const data = new FormData(form);
+    // match grabbed data with associated name attr
+    const name = data.get('name');
+    const contact = data.get('contact');
+    const clubId = data.get('club-id');
+
+    await createMember({
+        name: name,
+        contact_info: contact,
+        club_id: clubId,
+    });
+});

@@ -30,8 +30,20 @@ export async function signOutUser() {
 /* Data functions */
 
 export async function getBookClubs() {
-    // give me every property for workshops.
+    // give me every property for book clubs. and give me every club member who has this club as a foreign key
     const response = await client.from('book_clubs').select('*, members(*)');
+    return checkError(response);
+}
+
+export async function createMember(member) {
+    const response = await client.from('members').insert(member);
+
+    return checkError(response);
+}
+
+export async function deleteMember(memberId) {
+    const response = await client.from('members').delete().match({ id: memberId }).single();
+
     return checkError(response);
 }
 
